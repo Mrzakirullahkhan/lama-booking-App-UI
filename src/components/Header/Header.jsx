@@ -6,9 +6,30 @@ import { FaBedPulse } from "react-icons/fa6";
 import { FaTaxi } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
 import { FaPerson } from "react-icons/fa6";
+import { DateRange } from 'react-date-range';
+import {useState} from 'react'
+import 'react-date-range/dist/styles.css'; // main css file
+import 'react-date-range/dist/theme/default.css'; // theme css file
+import {format} from "date-fns"
 
 import "./header.css"
 function Header() {
+    const [openDate, setOpenDate]=useState(false)
+    const [date, setdate] = useState([
+        {
+          startDate: new Date(),
+          endDate: new Date(),
+          key: 'selection'
+        }
+      ]);
+    //   for children adult and room 
+     const [openOptions, setOpenOptions]=useState(false)
+     const [options, setOptions]=useState({
+        adult:0,
+        children:0,
+        room:1
+     })
+     
     return (
         <div className='header'>
             <div className="headerContainer">
@@ -46,12 +67,19 @@ function Header() {
                     </div>
                     <div className="headerSearchItem">
                         <SlCalender className='headerIcons'  />
-                       <span className='headerSearchText'>date to date</span>
+                       <span onClick={()=>{setOpenDate(!openDate)}} className='headerSearchText'>{`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")} `}</span>
+    {openDate &&<DateRange
+  editableDateInputs={true}
+  onChange={item => setdate([item.selection])}
+  moveRangeOnFirstSelection={false}
+  ranges={date}
+  className='date'
+/>}
                     </div>
                     <div className="headerSearchItem">
                         <FaPerson  className='headerIcons'/>
                         <span className='headerSearchText'>
-                            2 adults 2 children 1 room
+                        {`${options.adult} adult . ${options.children} children . ${options.room} room`}
                         </span>
                     </div>
                     <div className="headerSearchItem">
@@ -59,6 +87,7 @@ function Header() {
                     </div>
                 </div>
             </div>
+
         </div>
     )
 }

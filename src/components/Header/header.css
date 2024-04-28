@@ -9,6 +9,10 @@
     width: 100%;
     max-width: 1024px;
     margin: 20px 0px 100px 0px;
+    
+    
+
+    
 }
 .headerList{
     display: flex;
@@ -72,4 +76,8 @@
 }
 .headerSearchText{
     cursor: pointer;
+}
+.date{
+    position: absolute;
+    top: 50px;
 }
