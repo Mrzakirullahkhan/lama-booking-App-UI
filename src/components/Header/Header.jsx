@@ -29,7 +29,15 @@ function Header() {
         children:0,
         room:1
      })
-     
+    //  increase and decrease function handler 
+     const handleOption = (name,operation)=>{
+        setOptions((prev)=>{
+            return{
+                ...prev,
+                [name]: operation === "increase" ? options[name] + 1 : options[name] - 1,
+            }
+        })
+     }
     return (
         <div className='header'>
             <div className="headerContainer">
@@ -78,9 +86,43 @@ function Header() {
                     </div>
                     <div className="headerSearchItem">
                         <FaPerson  className='headerIcons'/>
-                        <span className='headerSearchText'>
+                        <span onClick={()=>{
+                            setOpenOptions(!openOptions)
+                        }} className='headerSearchText'>
                         {`${options.adult} adult . ${options.children} children . ${options.room} room`}
                         </span>
+                        {openOptions && <div className="options">
+                            <div className="optionItem">
+                                <span className="optionText">adult</span>
+                                <div className="optionCounter">
+                                <button className='optionCounterButton'
+                                 disabled={options.adult<=1} 
+                                onClick={()=>handleOption("adult","decrease")}>-</button>
+                                <span className='optionCounterNumber'>{options.adult}</span>
+                                <button className='optionCounterButton' onClick={()=>handleOption("adult","increase")}>+</button>
+                                </div>
+                            </div>
+                            <div className="optionItem">
+                                <span className="optionText">children</span>
+                                <div className="optionCounter">
+                                <button className='optionCounterButton'
+                                disabled={options.children<=0}
+                                 onClick={()=>handleOption("children","decrease")}>-</button>
+                                <span className='optionCounterNumber'>{options.children}</span>
+                                <button className='optionCounterButton' onClick={()=>handleOption("children","increase")}>+</button>
+                                </div>
+                            </div>
+                            <div className="optionItem">
+                                <span className="optionText">room</span>
+                                <div className="optionCounter">
+                                <button className='optionCounterButton'
+                                 disabled={options.room<=1}
+                                 onClick={()=>handleOption("room","decrease")}>-</button>
+                                <span className='optionCounterNumber' >{options.room}</span>
+                                <button className='optionCounterButton' onClick={()=>handleOption("room","increase")}>+</button>
+                                </div>
+                            </div>
+                        </div>}
                     </div>
                     <div className="headerSearchItem">
                      <button className='headerBtn'>Search</button>
