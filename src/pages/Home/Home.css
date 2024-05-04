@@ -5,4 +5,5 @@
     gap: 30px;
     margin-top: 50px;
     flex-direction: column;
+    overflow-x: hidden;
 }

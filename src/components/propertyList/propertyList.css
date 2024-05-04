@@ -10,6 +10,7 @@
     overflow: hidden;
     cursor: pointer;
     line-height: 13px;
+    flex: 1;
 }
 .propertyListImg{
     width: 100%;
