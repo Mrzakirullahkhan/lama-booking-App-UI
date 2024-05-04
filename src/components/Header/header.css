@@ -80,10 +80,12 @@
 .date{
     position: absolute;
     top: 50px;
+    z-index: 2;
 }
 .options{
     position: absolute;
     background-color: white;
+    z-index: 2;
     color: gray;
     top: 50px;
     border-radius: 5px;
