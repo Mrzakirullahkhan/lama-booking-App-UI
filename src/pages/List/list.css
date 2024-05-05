@@ -27,3 +27,26 @@
     margin-bottom: 10px;
 
 }
+.listSearchItem{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+.listSearchItem>label{
+    font-size: 12px;
+}
+.listSearchItem>input{
+    height: 30px;
+    border: none;
+    padding: 5px;
+}
+.listSearchItem>span{
+    height: 30px;
+    border: none;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    cursor: pointer;
+}
