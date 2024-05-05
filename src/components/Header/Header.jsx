@@ -11,10 +11,13 @@ import {useState} from 'react'
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import {format} from "date-fns"
+// import { useNavigate } from 'react-router-dom';
 
 import "./header.css"
+import { useNavigate } from 'react-router-dom';
 function Header({type}) {
     const [openDate, setOpenDate]=useState(false)
+    const [destination,setDestination] = useState("")
     const [date, setdate] = useState([
         {
           startDate: new Date(),
@@ -37,6 +40,16 @@ function Header({type}) {
                 [name]: operation === "increase" ? options[name] + 1 : options[name] - 1,
             }
         })
+     }
+    //  use navigate hook 
+    const navigate = useNavigate()
+    //  search per click krne wala function 
+     const handlerSearch = ()=>{
+        navigate("./hotels",{state:{
+            destination,
+            date,
+            options
+        }})
      }
     return (
         <div className='header'>
@@ -70,6 +83,7 @@ function Header({type}) {
                     <div className="headerSearchItem">
                         <FaBed className='headerIcons' />
                         <input type="text"
+                            onChange={e=>setDestination(e.target.value)}
                             placeholder='where are you going?'
                             className='headerSearchInput' />
                     </div>
@@ -125,7 +139,7 @@ function Header({type}) {
                         </div>}
                     </div>
                     <div className="headerSearchItem">
-                     <button className='headerBtn'>Search</button>
+                     <button className='headerBtn' onClick={handlerSearch}>Search</button>
                     </div>
                 </div></>}
             </div>
