@@ -31,7 +31,7 @@ function SearchItem() {
             <span className="searchItemTax">include taxes and fee</span>
             <button className='searchItemCheckBtn'>see availability</button>
            </div>
-           <div className=""></div>
+        
         </div>
     </div>
   )
