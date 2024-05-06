@@ -32,6 +32,7 @@ function Hotel() {
       <Header type="list"/>
       <div className="hotelContainer">
         <div className="hotelWrapper">
+          <button className="bookNow">Reserve or Book Now!</button>
           <h1 className="hotelTitle">Grand Hotel</h1>
           <div className="hotelAdress">
           <FaLocationDot />
@@ -46,7 +47,7 @@ function Hotel() {
           <div className="hotelImages">
             {photos.map(photo=>(
               <div className="hotelImageWrapper">
-                  <img src={photo.src} alt="" />
+                  <img src={photo.src} alt="" className='hotelImg' />
               </div>
             ))}
           </div>
