@@ -3,6 +3,8 @@ import "./hotel.css"
 import Navbar from "../../components/Navbar/Navbar"
 import Header from "../../components/Header/Header"
 import { FaLocationDot } from "react-icons/fa6";
+import Footer from "../../components/footer/Footer"
+import MailList from "../../components/mailList/MailList"
 
 
 
@@ -31,6 +33,7 @@ function Hotel() {
       <Navbar/>
       <Header type="list"/>
       <div className="hotelContainer">
+        
         <div className="hotelWrapper">
           <button className="bookNow">Reserve or Book Now!</button>
           <h1 className="hotelTitle">Grand Hotel</h1>
@@ -73,6 +76,8 @@ function Hotel() {
             </div>
           </div>
         </div>
+        <MailList/>
+        <Footer/>
       </div>
     </div>
   )
