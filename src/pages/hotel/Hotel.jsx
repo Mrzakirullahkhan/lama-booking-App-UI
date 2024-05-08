@@ -1,15 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./hotel.css"
 import Navbar from "../../components/Navbar/Navbar"
 import Header from "../../components/Header/Header"
 import { FaLocationDot } from "react-icons/fa6";
 import Footer from "../../components/footer/Footer"
 import MailList from "../../components/mailList/MailList"
+import { FaArrowCircleRight } from "react-icons/fa";
+import { FaArrowCircleLeft } from "react-icons/fa";
+import { MdCancel } from "react-icons/md";
+
 
 
 
 function Hotel() {
+ 
+  const [sliderNumber, setSliderNumber]=useState(0)
+  const [open,setOpen] = useState(false)
 
+  
   const photos = [
     {
       src:"https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -26,14 +34,26 @@ function Hotel() {
     {
       src:"https://images.pexels.com/photos/1438834/pexels-photo-1438834.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
+    
 
   ]
+  // function for open the slide 
+  const openHandler =(i)=>{
+    setOpen(true);
+    setSliderNumber(i)
+  }
   return (
     <div>
       <Navbar/>
       <Header type="list"/>
       <div className="hotelContainer">
-        
+      { open &&  <div className="slider">
+      <MdCancel />
+      <FaArrowCircleLeft />
+      <div className="slideWrapper">
+        <img src={photos[sliderNumber].src} alt="" />
+      </div>
+        </div>}
         <div className="hotelWrapper">
           <button className="bookNow">Reserve or Book Now!</button>
           <h1 className="hotelTitle">Grand Hotel</h1>
@@ -48,9 +68,9 @@ function Hotel() {
             Book a stay over $114 at this property and get a free airport taxi
           </span>
           <div className="hotelImages">
-            {photos.map(photo=>(
+            {photos.map((photo,i)=>(
               <div className="hotelImageWrapper">
-                  <img src={photo.src} alt="" className='hotelImg' />
+                  <img onClick={()=>openHandler(i)} src={photo.src} alt="" className='hotelImg' />
               </div>
             ))}
           </div>
