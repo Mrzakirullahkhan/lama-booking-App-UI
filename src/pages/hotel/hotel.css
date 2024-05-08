@@ -4,6 +4,7 @@
     align-items: center;
     margin-top: 20px;
     flex-direction: column;
+    overflow-x: hidden;
 }
 .hotelWrapper{
     display: flex;
@@ -99,5 +100,17 @@
     color: white;
     border-radius: 5px;
     cursor: pointer;
+
+}
+/* slider work */
+.slider{
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+.mySlider{
+    /* width: 100%; */
 
 }

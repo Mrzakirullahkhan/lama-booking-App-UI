@@ -51,7 +51,7 @@ function Hotel() {
       <MdCancel />
       <FaArrowCircleLeft />
       <div className="slideWrapper">
-        <img src={photos[sliderNumber].src} alt="" />
+        <img className='mySlider' src={photos[sliderNumber].src} alt="" />
       </div>
         </div>}
         <div className="hotelWrapper">
