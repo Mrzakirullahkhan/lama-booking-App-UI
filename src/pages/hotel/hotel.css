@@ -107,10 +107,18 @@
     background-color: black;
     width: 100vw;
     height: 100vh;
-    display: flex;
-    justify-content: center;
+    position: sticky;
+    z-index: 999;
 }
-.mySlider{
-    /* width: 100%; */
+.slideWrapper{
+    width: 100%;
+    object-fit: cover;
+}
+    
 
+   
+
+.mySlider{
+    width: 100%;
+   
 }
