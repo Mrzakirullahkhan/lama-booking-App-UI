@@ -50,9 +50,9 @@ function Hotel() {
       { open &&  <div className="slider">
       <MdCancel />
       <FaArrowCircleLeft />
-      <div className="slideWrapper">
+      {/* <div className="slideWrapper">
         <img className='mySlider' src={photos[sliderNumber].src} alt="" />
-      </div>
+      </div> */}
         </div>}
         <div className="hotelWrapper">
           <button className="bookNow">Reserve or Book Now!</button>
